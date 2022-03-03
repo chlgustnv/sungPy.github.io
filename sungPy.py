@@ -21,9 +21,20 @@ def distance(v1, v2):
 
 #□□□□□□□□□□□□□□□□□□□□□□□□□□2차원 각과 삼각법□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
 
-def to_cartesian(polar_vector):                         #데카르 좌표로 변환  (길이, 각도) -> (x,y)
+def to_cartesian(polar_vector):                         #데카르 좌표로 변환  (길이, 각도) -> (x,y) 각도는 라디안 값
     length, angle = polar_vector[0], polar_vector[1]    #length = 벡터 길이, angle = 라디안 각
     return (length*cos(angle), length*sin(angle))       #cos = x/길이, sin = y/길이 
+
+def to_polar(vector):                                   #극좌표로 변환 (x,y) -> (길이, 각도)
+    x, y = vector[0], vector[1]
+    angle = atan2(y,x)
+    return (length(vector), angle)
+
+def to_radian(angle):                                   #도      ->   라디안
+    return angle*pi/180
+
+def to_do_angle(angle):                                 #라디안  ->   도 
+    return angle*180/pi
 
 
 #----------------------------------------------------------변수 정의-------------------------------------------------------------------
@@ -43,7 +54,10 @@ dino_vectors2 = [add((-1.5, -2.5), v) for v in dino_vectors]
 #     Polygon(*dino_vectors2, color = red),
     
 # )
-tan(pi/4)
+# print(to_cartesian((8.5,to_radian(125))))
+# print(sin(to_radian(50)))
+# print(cos(to_radian(50)))
+# print(tan(to_radian(116.57)))
 
 # for n in range(-12,15):  #2.26 연습문제
 #     for m in range(-14,13):
